@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>我的动态</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bui.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/RequestUserId.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/RequestTicket.js"></script>
+    <script type="text/javascript" src="http://www.w3school.com.cn/jquery/jquery.js"></script>
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        }
+        if(!window.Promise) {
+            document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+        }
+    </script>
+
+
+</head>
+
+
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    import 'antd-mobile/dist/antd-mobile.css';
+    import { Button } from 'antd-mobile';
+    ReactDOM.render(
+        <Button>Start</Button>,
+        document.getElementById('example')
+    );
+</script>
+    <div class="bui-page">
+        <header class="bui-bar">
+            <div class="bui-bar-left" style="overflow:visible;">
+                <!-- 不修改文本值 -->
+                <a class="bui-btn" onclick="bui.back();"><i class="icon-back"></i></a>
+            </div>
+            <div class="bui-bar-main">
+                我的动态
+            </div>
+
+            <!-- 这个样式要设置才会看到二级菜单 -->
+            <div class="bui-bar-right" style="overflow:visible;">
+                <!-- 不修改文本值 -->
+                <div id="barRight" class="bui-dropdown" change="false">
+                    <div class="bui-btn bui-box-center">
+                        <i class="icon-dropdown"></i>
+                    </div>
+                    <ul class="bui-list round">
+                        <!-- 默认激活第一个 -->
+                        <li class="bui-btn" value="11">
+                           考勤记录
+                        </li>
+                        <li class="bui-btn" value="22">
+                           外出记录
+                        </li>
+                        <li class="bui-btn" value="33">
+                            出差记录
+                        </li>
+                        <li class="bui-btn" value="44">
+                            请假记录
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- 中间内容 -->
+
+            <div>
+            <div id="yichang" style="height: 3rem;background-color: white;border: 2px;border-bottom-color: black;margin-bottom: 12px">
+                <div class="bui-slide-main" style=";font-size: large;font-family: 微软雅黑;height: 100%" >
+
+                       <div style="display:flex;justify-content:center;align-items:center;height: 100%">
+                            <div style="width: 50%;height: 100%">
+                                  <div style="width: 100%"><img src="images/提示.png" style="width: 20px" /></div><div id="message1" style="text-align: center;display: inline-block;line-height: 88px;height: 103.2px;width: 100%">暂无异常信息</div>
+
+                            </div>
+
+                           <div style="width: 50%;height: 100%">
+                               <div style="width: 100%"><img src="images/提示.png" style="width: 20px"/></div><div id="message2" style="text-align: center;display: inline-block;line-height: 88px;height: 103.2px;width: 100%"> 暂无异常信息</div>
+                           </div>
+                           </div>
+                           </div>
+                </div>
+
+
+            </div>
+
+            <div class="index-content">
+            <div style="height: 1.4rem;background-color: white"  >
+                <div style="height: 0.467rem;" ></div>
+               <div style="height: 0.466rem;line-height: 0.466rem;display: table-cell;vertical-align: middle;"><img srcset="images/左上角角标.png" style="height: 0.466rem;margin-top:0.1rem;margin-left: 0.227rem;margin-right: 0.227rem"><div style="font-size: 0.466rem;font-family: 微软雅黑;display: inline;position:absolute;margin-top:0.09rem">出差考勤类</div></div>
+               <div style="height:0.467rem;"></div>
+            </div>
+
+
+
+                <ul class="bui-nav-icon bui-fluid-4">
+                  <li class="bui-btn">
+                      <i class="icon"><img src="images/考勤.png" onclick="window.location.href = 'http://bi.zgsyjt.cn:10080/WebReport/ReportServer?op=h5&formlet=StaffInfo%2F%5B8003%5D%5B52e4%5D%5B8868%5D.frm&userid='+useridreturn()"/></i>
+                      <div class="span1">考勤记录</div>
+                  </li>
+                  <li class="bui-btn">
+                      <i class="icon"><img src="images/外出%20出差.png" onclick="window.location.href='http://bi.zgsyjt.cn:10080/WebReport/ReportServer?op=h5&formlet=StaffInfo%2F%5B5916%5D%5B51fa%5D%5B8868%5D.frm&userid='+useridreturn()"/></i>
+                      <div class="span1">外出记录</div>
+                  </li>
+                  <li class="bui-btn">
+                      <i class="icon"><img src="images/航班.png" onclick="window.location.href = 'http://bi.zgsyjt.cn:10080/WebReport/ReportServer?op=h5&formlet=StaffInfo%2F%5B51fa%5D%5B5dee%5D%5B8868%5D%5B5355%5D.frm&userid='+useridreturn()"/></i>
+                      <div class="span1">出差记录</div>
+                  </li>
+                    <li class="bui-btn">
+                        <i class="icon"><img src="images/请假.png" onclick="window.location.href = 'http://bi.zgsyjt.cn:10080/WebReport/ReportServer?op=h5&formlet=StaffInfo%2F%5B8bf7%5D%5B5047%5D%5B8868%5D.frm&userid='+useridreturn()"/></i>
+                      <div class="span1">请假记录</div>
+                  </li>
+
+              </ul>
+            </div>
+            <div class="index-content">
+                <!--<div style="height: 1.4rem;background-color: white"  >
+                    <div style="height: 0.467rem;" ></div>
+                    <div style="height: 0.466rem;line-height: 0.466rem;display: table-cell;vertical-align: middle;"><img srcset="images/左上角角标.png" style="height: 0.466rem;margin-top:0.1rem;margin-left: 0.227rem;margin-right: 0.227rem"><div style="font-size: 0.466rem;font-family: 微软雅黑;display: inline;position:absolute;margin-top:0.09rem">其他报表</div></div>
+                    <div style="height:0.467rem;"></div>
+                </div> -->
+
+
+
+               <!-- <ul class="bui-nav-icon bui-fluid-4">
+                    <li class="bui-btn">
+                        <i class="icon"><img src="images/OA.png" /><span
+                                class="bui-badges">5</span></i>
+                        <div class="span1">OA审批记录</div>
+                    </li>
+                    <li class="bui-btn">
+                        <i class="icon"><img src="images/会议.png"/></i>
+                        <div class="span1">会议记录</div>
+                    </li>
+                    <li class="bui-btn">
+                        <i class="icon"><img src="images/美食.png"/></i>
+                        <div class="span1">食堂用餐记录</div>
+                    </li>
+                    <li class="bui-btn">
+                        <i class="icon"><img src="images/机票.png"/></i>
+                        <div class="span1">机票查询</div>
+                    </li>
+                    <li class="bui-btn">
+                        <i class="icon"><img src="images/报表.png" onclick="window.location.href = 'http://bi.zgsyjt.cn:10080/WebReport/ReportServer??op=h5&formlet=BI%2Fysk---mobile.frm'"/></i>
+                        <div class="span1">报表访问记录</div>
+                    </li>
+
+                </ul> -->
+            </div>
+
+
+            <!-- 列表控件 html 对应的结构:  -->
+            <div id="uiList" class="bui-scroll">
+                <div class="bui-scroll-head"></div>
+                <div class="bui-scroll-main">
+                    <ul class="bui-list">
+                    </ul>
+                </div>
+                <div class="bui-scroll-foot"></div>
+            </div>
+
+
+        </main>
+       <!-- <script>
+            $.ajax({
+                type: "GET",
+                url: "http://10.2.59.128:5693/api/info/yc",
+                data: {id:1,ticket:'1'},
+                dataType: "JSON",
+                success: function(t){
+                    var optionstring = "";
+                    for (var i in t) {
+                        optionstring += t[i].content ;
+
+                    }
+
+                    document.getElementById("message1").innerHTML=t[0].content;
+                    document.getElementById("message2").innerHTML=t[1].content;
+
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                    alert(XMLHttpRequest.status);
+                    alert(XMLHttpRequest.readyState);
+                    alert(textStatus);
+                }
+            });
+        </script> -->
+        <footer>
+            <!-- 底部内容 -->
+        </footer>
+
+    </div>
+
+
+    <script src="js/zepto.js"></script>
+    <script src="js/bui.js"></script>
+    <!-- 初始化单页 -->
+    <script src="index.js">
+
+    </script>
+</body>
+
+</html>
